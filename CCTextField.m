@@ -47,14 +47,15 @@
 		sharedTextField = NO;
 		CGSize s = [[CCDirector sharedDirector] winSize];		
 		
-		self.label = [CCLabelTTF labelWithString:@"" dimensions:textFieldSize alignment:UITextAlignmentLeft fontName:fontName fontSize:fontSize];
+        self.label = [CCLabelTTF labelWithString:@"" fontName:fontName fontSize:fontSize dimensions:textFieldSize hAlignment:UITextAlignmentLeft];
+        
 		[self.label setColor:ccBLACK];
 		
 		self.textField = [[[UITextField alloc] initWithFrame:CGRectMake(s.width * 2, s.height * 2, textFieldSize.width, textFieldSize.height)] autorelease];
 		
 		[self.textField addObserver:self forKeyPath:@"delegate" options:NSKeyValueObservingOptionNew context:NULL];
 		
-		[[[CCDirector sharedDirector] openGLView] addSubview:self.textField];
+		[[[CCDirector sharedDirector] view] addSubview:self.textField];
 		
 		[self initContent];
 		
@@ -196,16 +197,17 @@
 - (void)onEnter {
 	[super onEnter];
 	
-	[[CCTouchDispatcher sharedDispatcher]  addTargetedDelegate:self priority:0 swallowsTouches:YES];
+
+	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 	
-	[[CCScheduler sharedScheduler] scheduleSelector:@selector(updateTicker) forTarget:self interval:0.5 paused:NO];
+	[[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(updateTicker) forTarget:self interval:0.5 paused:NO];
 }
 
 - (void)onExit {
 	[super onExit];
 	
-	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-	[[CCScheduler sharedScheduler] unscheduleAllSelectorsForTarget:self];
+	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+	[[[CCDirector sharedDirector] scheduler] unscheduleAllForTarget:self];
 	
 }
 

@@ -17,8 +17,8 @@
 - (BOOL)textField:(CCTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end
-
-@interface CCTextField : CCNode <UITextFieldDelegate, CCTargetedTouchDelegate> {
+//CCTouchAllAtOnceDelegate
+@interface CCTextField : CCNode <UITextFieldDelegate, CCTouchOneByOneDelegate> {
 	BOOL showingTicker;
 	BOOL hidingTicker;
 	BOOL sharedTextField;
