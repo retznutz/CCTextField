@@ -1,5 +1,26 @@
 # CCTextField
 
+Forked from @ignacioinglese - thanks for the very nice solution!
+
+A few new notes:
+
+Create the whole CCTextField on it's own.  There is an issue with creating items seperate.
+
+Then add it to your CCLayer, CCSprite, etc… it's wisely inherited from CCNode. Position, scale, etc… as needed.  It makes a UITextField off screen, and then updates keyed input to a CCLabelTTF.  Brilliant!
+
+Example:
+
+CCTextField *tf = [CCTextField textFieldWithFieldSize:CGSizeMake(400, 100) fontName:@"Arial" andFontSize:32];
+CCSprite *mySprite = [CCSprite alloc]init];
+tf.
+[mySprite addChild:tf]
+
+
+
+Original Readme
+==========
+
+
 CCTextField is a cocos2d-based implementation for text input.
 I found myself having to deal with UITextFields that stayed on top of my UI no matter what happened below and decided to create this.
 
