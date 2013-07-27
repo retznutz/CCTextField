@@ -1,6 +1,6 @@
 # CCTextField
 
-Forked from @ignacioinglese - thanks for the very nice solution!
+Forked from @ignacioinglese - thanks for the very nice solution! Updated to work with Cocos2d 2.1
 
 A few new notes:
 
