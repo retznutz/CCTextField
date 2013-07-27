@@ -47,7 +47,9 @@
 		sharedTextField = NO;
 		CGSize s = [[CCDirector sharedDirector] winSize];		
 		
-        self.label = [CCLabelTTF labelWithString:@"" fontName:fontName fontSize:fontSize dimensions:textFieldSize hAlignment:UITextAlignmentLeft];
+        self.label = [CCLabelTTF labelWithString:@" " fontName:fontName fontSize:fontSize dimensions:textFieldSize hAlignment:UITextAlignmentLeft];
+        
+        
         
 		[self.label setColor:ccBLACK];
 		
@@ -57,6 +59,8 @@
 		
 		[[[CCDirector sharedDirector] view] addSubview:self.textField];
 		
+        self.textField.text = @"";
+        self.label.string = @"";
 		[self initContent];
 		
 	}
@@ -167,7 +171,7 @@
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	
 	CGPoint p = [self convertToNodeSpace:[[CCDirector sharedDirector] convertToGL:[touch locationInView:touch.view]]];
-	CGRect r = self.boundingBox;
+	CGRect r = textField_.frame;
 	r.origin = CGPointZero;
 	
 	
@@ -267,6 +271,7 @@
 	
 	NSString * str = [self.label string];
 	
+  
 	if (showingTicker) {
 		[self.label setString:[str stringByAppendingString:@"|"]];
 	}
