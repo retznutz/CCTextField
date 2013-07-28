@@ -10,10 +10,9 @@ Then add it to your CCLayer, CCSprite, etc… it's wisely inherited from CCNode.
 
 Example:
 
-CCTextField *tf = [CCTextField textFieldWithFieldSize:CGSizeMake(400, 100) fontName:@"Arial" andFontSize:32];
-CCSprite *mySprite = [CCSprite alloc]init];
-tf.
-[mySprite addChild:tf]
+     CCTextField *tf = [CCTextField textFieldWithFieldSize:CGSizeMake(400, 100) fontName:@"Arial" andFontSize:32];
+     CCSprite *mySprite = [CCSprite alloc]init];
+     [mySprite addChild:tf]
 
 
 
